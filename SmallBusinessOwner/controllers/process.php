@@ -113,17 +113,16 @@ if (isset($_REQUEST["Submit"])){
     if ($haserror === 1){
         echo "Please enter all the credencials";
     }else{
+        // connecting db
         $mydb = new Model();
-    $connObj = $mydb->OpenConn();
-    $result = $mydb->AddSmallBusinessOwnerRegistration($connObj, "SMBusinessOwnerRegistration",$_REQUEST["businessName"], $_REQUEST["businessType"], $_REQUEST["email"], $_REQUEST["password"], $_REQUEST["confirmPassword"],$_REQUEST["taxIdentity"],$_REQUEST['phoneNumber']);
-    if ($result === TRUE){
-        echo "Successfully inserted the data";
-    }else{
-        echo "Error occured ".$connObj->error;
-    }
-    }
-    
-    
+        $connObj = $mydb->OpenConn();
+        $result = $mydb->AddSmallBusinessOwnerRegistration($connObj, "SMBusinessOwnerRegistration",$_REQUEST["businessName"], $_REQUEST["businessType"], $_REQUEST["email"], $_REQUEST["password"], $_REQUEST["confirmPassword"],$_REQUEST["taxIdentity"],$_REQUEST['phoneNumber']);
+        if ($result === TRUE){
+            echo "Successfully inserted the data";
+        }else{
+            echo "Error occured ".$connObj->error;
+        }
+    } 
 }
 
 ?>
