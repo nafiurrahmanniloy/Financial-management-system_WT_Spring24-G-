@@ -68,6 +68,8 @@
                         </td>
                         <td>
                             <input name="taxIdentity" type="number" />
+                            <?php echo $taxNumber;?>
+                            <?php echo $taxNumberError;?>
                         </td>
                     </tr>
                     <tr>
@@ -86,6 +88,8 @@
                         </td>
                         <td>
                             <input name="confirmPassword" type="password" />
+                            <?php echo $confirmPassword;?>
+                            <?php echo $confirmPasswordError;?>
                         </td>
                     </tr>
 
