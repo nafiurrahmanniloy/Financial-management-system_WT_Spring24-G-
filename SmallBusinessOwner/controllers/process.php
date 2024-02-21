@@ -2,9 +2,7 @@
 include '../model/mydb.php';
 // declaring variable
 $businessName=$businessType=$email=$password=$confirmPassword=$taxNumber=$phoneNumber=$haserror= '';
-$businessNameError=$emailError=$businessTypeError=$passwordError=$confirmPasswordError=$taxNumberError=$phoneNumberError=$dbInsertingError = '';
-
-
+$businessNameError=$emailError=$businessTypeError=$passwordError=$confirmPasswordError=$taxNumberError=$phoneNumberError=$dbInsertingError=$termsError=  '';
 
 
 // if submit button has been clicked
@@ -105,7 +103,13 @@ if (isset($_REQUEST["Submit"])){
             $haserror = 1;
         }else{
             $phoneNumber = $_REQUEST['phoneNumber'];
-        }
+        } 
+    }
+
+    // checkbox validation
+    if (empty($_REQUEST['termsCondition'])){
+        $termsError = 'Please agree with terms and conditions';
+        $haserror = 1;
     }
 
 
